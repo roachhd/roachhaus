@@ -1,28 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <title>1982 Commodore 64 Tribute | Roach Haus</title>
+ <meta name="description" content="commodore 64 style landing page" />
+ <meta name="keywords" content="JavaScript, HTML, DHTML, animation, CSS3, arcade, retro, space, shooter, arcade game, browser game, commodore 64" />
+ <meta name="author" content="Katie Ball" />
+ <!--
+ /** @license
+  *
+  */
 
+  /**
+   * ADDITIONAL PAGE DEBUG OPTIONS / PARAMETERS
+   * ?html5audio=1 - prefer HTML5 audio, if available (at own risk)
+   * ?profile=1 - shows a performance panel with live DOM stats, options to show/hide groups of DOM elements
+   * ?debug=1 - green blocks everywhere on the grid.
+   * ?mute=1 - I hate sound
+   * ?interval=1 - force setInterval() instead of requestAnimationFrame (if available)
+   */
+ -->
+ <link rel="stylesheet" href="css/survivor.css" />
+ <!-- see script/soundmanager2.js for full, commented version -->
+ <script src="script/soundmanager2-nodebug-jsmin.js"></script>
+ <script>
+  soundManager.setup({
+    url: 'swf/',
+    useHighPerformance: true,
+    flashVersion: 9,
+    wmode: 'opaque',
+    bgColor: '#000000'
+  });
 
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-	<title>Commodore 64</title>
-   <LINK REL=StyleSheet HREF="./style.css" TYPE="text/css">
-   </head>
-    <body class="bg-type1">
-	<a href=# id="screen">
-		<div id="mainscreen" class="bg-type2 basicscreen font-type1 text-space">
-	    	<div id="loading">Loading</div>
-	    	<div class="txt-header">
-				<ul class="txt-header-list">
-		    		<li>**** COMMODORE 64 BASIC V2 ****</li>
-		    		<li>64K RAM SYSTEM 38911 BASIC BYTES FREE</li>
-				</ul>
-		READY.<br>
-	    </div>
-        <div id="input1">load"*",8</div>
-        <div id="input2"><br />searching for *<br />loading<br /> ready.</dAiv>
-        <div id="input3">run</div>
-        <img src="./prompt.gif">
-	</div></a>
-    
+  if (window.location.href.match(/html5audio=1/i) || window.location.href.match(/file/i)) {
+    // try at your own risk - playback may lag, etc.
+    soundManager.setup({
+      preferFlash: false
+    });
+  }
+ </script>
+ <script src="script/survivor.js"></script>
+ <!-- on  -->
+ <script src="/common/stats.js"></script>
+</head>
+
+<body>
+
+<div>
+
+<div id="screens">
+
+ <ul id="screen-list">
+
+  <li id="boot-screen">
+
+   <div id="c64">
+
+    <div id="c64-body">
+
+     <h1>**** COMMODORE 64 BASIC V2 ****</h1>
+  
+     <h2>64K RAM SYSTEM&nbsp;&nbsp;38911 BASIC BYTES FREE</h2>
+
+     <p>READY.<p>
+
+     <div id="loading0" class="loading">
+
+      <p>LOAD"ROACH HAUS-2014",8,1</p>
+
+      <br />
+
+     </div>
+
+     <p id="loading1" class="loading">SEARCHING FOR ROACH HAUS-2014</p>
+
+     <p id="loading2" class="loading">LOADING</p>
+
+     <div id="go_go_go">
+
+      <p>READY.</p>
+
+      <p>RUN</p>
+
+     </div>
+
+    </div>
+
+    <div id="cursor"></div>
+
+   </div>
+
+  </li>
+
+  <li id="title-screen">
+
+   <div id="title-content"> <a href="http://games.roachhaus.com/gameDirectory/default.html">
+
+    <div id="title-header">
+
+     <h1>ROACH HAUS 2014</h1>
+
+    </div>
+
+    <h2>Welcome to Roach Haus HTML + Web + mobile games directory, this landing page is based on the Commodore 64 from 1983.</h2>
+
+    <!-- "The marquee element is not valid according to the HTML or XHTML specifications. Page authors concerned with validation should not use this tag." -->
+    <!-- https://developer.mozilla.org/en/HTML/Element/marquee -->
+    <h3>
+     <marquee scrolldelay="60">
+      <Head over to the games directory to check out our list of mobile, web and desktop games (C) 1978 Roach Haus. Created from the love of games (1983.)
+     </marquee>
+    </h3>
+
+   </div> </a>
+
+  </li>
+
+ 
+
+  
+
+   <noscript>Don't forget to enable JavaScript.</noscript>
+
+  </div>
+
+</div>
 
 </body>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="./display.js"></script>
+
 </html>
